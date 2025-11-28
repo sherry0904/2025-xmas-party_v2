@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Trophy, ChevronUp, ChevronDown } from 'lucide-react';
 import { useGame } from '../store/gameStore';
 
+import DevTools from './DevTools';
+
 const Layout = ({ children }) => {
   const { user, players, isAdmin, resetAllGame, gameState } = useGame() || {}; // Handle case where context might be null initially
   const [showLeaderboard, setShowLeaderboard] = useState(false);
@@ -77,6 +79,9 @@ const Layout = ({ children }) => {
       <main className="relative z-10 flex-1 flex flex-col justify-center p-6 pt-20 pb-24">
         {children}
       </main>
+
+      {/* DevTools (Admin Only) */}
+      {isAdmin && <DevTools />}
 
       {/* Persistent Footer (Leaderboard) - Only show in active game levels */}
       {user && ['level1', 'level2', 'level3'].includes(gameState) && (
