@@ -32,7 +32,7 @@ const Lobby = () => {
               onClick={logout}
               className="text-xs text-christmas-text/40 hover:text-christmas-text transition-colors"
             >
-              Leave
+              離開
             </button>
           </div>
 
@@ -42,20 +42,20 @@ const Lobby = () => {
             </span>
           </div>
           <h2 className="text-2xl font-serif text-christmas-text mb-2">
-            Welcome, {user.name}!
+            歡迎, {user.name}!
           </h2>
           <p className="text-christmas-text/60 font-sans text-sm">
-            You are in the lobby.
+            你已在大廳中
           </p>
           <div className="my-6 border-t border-christmas-text/10" />
           <p className="text-christmas-text/80 animate-pulse mb-8">
-            Waiting for host to start the game...
+            等待主持人開始遊戲...
           </p>
 
           {/* Player List */}
           <div className="border-t border-christmas-text/10 pt-6">
             <h3 className="text-sm font-serif text-christmas-text/60 mb-4">
-              Joined Players ({Object.keys(players).length})
+              已加入玩家 ({Object.keys(players).length})
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {Object.values(players).map((p) => (
@@ -79,7 +79,7 @@ const Lobby = () => {
               onClick={startGame}
               className="mt-8 w-full bg-christmas-accent text-white font-serif py-3 rounded-xl shadow-lg hover:bg-christmas-accent/90"
             >
-              Start Game (Admin)
+              開始遊戲 (Admin)
             </motion.button>
           )}
         </div>
@@ -98,14 +98,14 @@ const Lobby = () => {
           Join the Party
         </h2>
         <p className="text-center text-christmas-text/60 text-sm mb-8">
-          Enter your details to start
+          輸入你的資料以加入派對
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Nickname Input */}
           <div className="space-y-2">
             <label className="text-xs font-bold uppercase tracking-wider text-christmas-text/50 ml-1">
-              Nickname
+              暱稱
             </label>
             <div className="relative">
               <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-christmas-text/40" />
@@ -113,7 +113,7 @@ const Lobby = () => {
                 type="text"
                 value={nickname}
                 onChange={(e) => setNickname(e.target.value)}
-                placeholder="e.g. Santa Claus"
+                placeholder="會取第一個字當頭像"
                 className="w-full bg-white/50 border border-white/40 rounded-xl py-3 pl-12 pr-4 
                          text-christmas-text placeholder:text-christmas-text/30 focus:outline-none 
                          focus:ring-2 focus:ring-christmas-accent/50 transition-all"
@@ -126,7 +126,7 @@ const Lobby = () => {
             <div className="flex items-center gap-2 mb-2">
               <Lock className="w-4 h-4 text-christmas-accent" />
               <span className="text-sm font-serif italic text-christmas-text/80">
-                Two Secrets about You
+                兩件大家不知道的事
               </span>
             </div>
             
@@ -134,7 +134,7 @@ const Lobby = () => {
               type="text"
               value={secret1}
               onChange={(e) => setSecret1(e.target.value)}
-              placeholder="1. I once ate a whole pizza..."
+              placeholder="我曾經比過選美比賽..."
               className="w-full bg-white/50 border border-white/40 rounded-xl py-3 px-4 
                        text-christmas-text placeholder:text-christmas-text/30 focus:outline-none 
                        focus:ring-2 focus:ring-christmas-accent/50 text-sm"
@@ -143,7 +143,7 @@ const Lobby = () => {
               type="text"
               value={secret2}
               onChange={(e) => setSecret2(e.target.value)}
-              placeholder="2. My hidden talent is..."
+              placeholder="我能一次吃下30顆水餃..."
               className="w-full bg-white/50 border border-white/40 rounded-xl py-3 px-4 
                        text-christmas-text placeholder:text-christmas-text/30 focus:outline-none 
                        focus:ring-2 focus:ring-christmas-accent/50 text-sm"
@@ -163,7 +163,7 @@ const Lobby = () => {
                      transform hover:scale-[1.02] active:scale-[0.98] transition-all
                      flex items-center justify-center gap-2 group"
           >
-            <span>Ready to Party</span>
+            <span>準備好了！</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
         </form>

@@ -72,7 +72,7 @@ const Result = () => {
           Final Results
         </h1>
         <p className="text-christmas-text/60 font-serif italic">
-          The party is over! Here are the champions.
+          派對結束！王者誕生。
         </p>
       </motion.div>
 
@@ -91,7 +91,7 @@ const Result = () => {
               <div className="absolute -bottom-3 bg-gray-600 text-white text-xs px-2 py-1 rounded-full">2nd</div>
             </div>
             <span className="font-serif font-bold text-christmas-text">{sortedPlayers[1].name}</span>
-            <span className="text-sm text-christmas-text/60">{sortedPlayers[1].score} pts</span>
+            <span className="text-sm text-christmas-text/60">{sortedPlayers[1].score} 分</span>
             <div className="w-20 h-24 bg-gray-300/30 rounded-t-lg mt-2 border-t border-white/50" />
           </motion.div>
         )}
@@ -111,7 +111,7 @@ const Result = () => {
               </div>
             </div>
             <span className="font-serif font-bold text-christmas-text text-lg">{sortedPlayers[0].name}</span>
-            <span className="text-sm font-bold text-christmas-accent">{sortedPlayers[0].score} pts</span>
+            <span className="text-sm font-bold text-christmas-accent">{sortedPlayers[0].score} 分</span>
             <div className="w-24 h-32 bg-yellow-400/30 rounded-t-lg mt-2 border-t border-white/50" />
           </motion.div>
         )}
@@ -129,7 +129,7 @@ const Result = () => {
               <div className="absolute -bottom-3 bg-amber-800 text-white text-xs px-2 py-1 rounded-full">3rd</div>
             </div>
             <span className="font-serif font-bold text-christmas-text">{sortedPlayers[2].name}</span>
-            <span className="text-sm text-christmas-text/60">{sortedPlayers[2].score} pts</span>
+            <span className="text-sm text-christmas-text/60">{sortedPlayers[2].score} 分</span>
             <div className="w-20 h-16 bg-amber-600/30 rounded-t-lg mt-2 border-t border-white/50" />
           </motion.div>
         )}
@@ -142,7 +142,7 @@ const Result = () => {
           className="flex items-center gap-2 bg-white/80 backdrop-blur text-christmas-accent px-5 py-2 rounded-full shadow-lg hover:bg-white transition-all text-sm font-bold border border-christmas-accent/30"
         >
           <BarChart2 className="w-4 h-4" />
-          Gift Insights
+          禮物大數據
         </button>
       </div>
 
@@ -151,7 +151,7 @@ const Result = () => {
         <div className="glass-card p-6">
           <div className="flex items-center gap-2 mb-4 text-christmas-text/60 uppercase tracking-widest text-xs font-bold">
             <Gift className="w-4 h-4" />
-            <span>Gift Exchange Order</span>
+            <span>禮物交換順序</span>
           </div>
           
           <div className="space-y-3">
@@ -174,7 +174,7 @@ const Result = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-christmas-accent">{p.score}</span>
-                    <span className="text-xs text-christmas-text/40">pts</span>
+                    <span className="text-xs text-christmas-text/40">分</span>
                   </div>
                 </div>
 
@@ -186,12 +186,12 @@ const Result = () => {
                     className="bg-white/30 px-4 pb-4 pt-2 border-t border-white/20"
                   >
                     <p className="text-xs font-bold text-christmas-text/50 uppercase mb-2">
-                      Best Gifts for {p.name}:
+                      {p.name} 的最佳禮物推薦:
                     </p>
                     <div className="space-y-1">
                       {getRecommendations(p.id).map((rec, i) => (
                         <div key={i} className="flex justify-between text-sm">
-                          <span className="text-christmas-text/80">{rec.giverName}'s Gift</span>
+                          <span className="text-christmas-text/80">{rec.giverName} 的禮物</span>
                           <div className="flex gap-1">
                             {[...Array(rec.score)].map((_, starI) => (
                               <Star key={starI} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
@@ -215,7 +215,7 @@ const Result = () => {
              onClick={resetAllGame}
              className="bg-white/80 backdrop-blur text-christmas-text px-6 py-2 rounded-full shadow-lg hover:bg-white transition-all text-sm font-serif border border-christmas-gold/30"
            >
-             Start New Game
+             開始新遊戲
            </button>
         </div>
       )}

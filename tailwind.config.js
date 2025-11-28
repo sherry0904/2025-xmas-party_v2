@@ -16,7 +16,7 @@ export default {
         }
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'],
+        serif: ['"Playfair Display"', '"Noto Serif TC"', 'serif'],
         sans: ['"Inter"', 'sans-serif'],
         // Fallback for Chinese if needed, though system fonts usually suffice
       },

@@ -160,7 +160,7 @@ const Level2 = () => {
             <div className="w-12 h-1 bg-christmas-accent/20 mx-auto mb-4" />
             <p className="text-christmas-text/80 leading-relaxed font-serif">{RULES}</p>
             <div className="inline-block bg-christmas-accent/10 px-4 py-1 rounded-full text-christmas-accent text-sm font-bold mt-2">
-              Reward: +{POINTS_PER_WIN} pts / correct guess
+              獎勵: +{POINTS_PER_WIN} 分 / 猜對
             </div>
           </div>
           {isAdmin ? (
@@ -170,10 +170,10 @@ const Level2 = () => {
               onClick={handleStartLevel}
               className="mt-4 px-8 py-3 bg-christmas-accent text-white font-serif rounded-full shadow-lg hover:bg-christmas-accent/90"
             >
-              Start Level 2
+              開始 Level 2
             </motion.button>
           ) : (
-            <p className="text-sm text-christmas-text/40 animate-pulse mt-4">Waiting for host...</p>
+            <p className="text-sm text-christmas-text/40 animate-pulse mt-4">等待主持人...</p>
           )}
         </div>
       </div>
@@ -186,9 +186,9 @@ const Level2 = () => {
     return (
       <div className="w-full max-w-md mx-auto space-y-8 text-center animate-fade-in">
         <div className="glass-card p-8">
-          <h2 className="text-2xl font-serif text-christmas-accent mb-6">Level 2 Complete!</h2>
+          <h2 className="text-2xl font-serif text-christmas-accent mb-6">Level 2 完成！</h2>
           <div className="space-y-3 mb-8">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-christmas-text/50">Current Standings</h3>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-christmas-text/50">目前排名</h3>
             {sortedPlayers.slice(0, 3).map((p, idx) => (
               <div key={p.id} className="flex items-center justify-between p-3 bg-white/40 rounded-xl border border-white/50">
                 <div className="flex items-center gap-3">
@@ -197,16 +197,16 @@ const Level2 = () => {
                   </span>
                   <span className="font-serif">{p.name}</span>
                 </div>
-                <span className="font-bold text-christmas-accent">{p.score} pts</span>
+                <span className="font-bold text-christmas-accent">{p.score} 分</span>
               </div>
             ))}
           </div>
           {isAdmin ? (
             <button onClick={handleStartLevel3} className="w-full bg-christmas-accent text-white font-serif py-3 rounded-xl shadow-lg hover:bg-christmas-accent/90">
-              Go to Level 3 →
+              前往 Level 3 →
             </button>
           ) : (
-            <p className="text-sm text-christmas-text/40 animate-pulse">Waiting for next level...</p>
+            <p className="text-sm text-christmas-text/40 animate-pulse">等待下一關...</p>
           )}
         </div>
       </div>
@@ -215,7 +215,7 @@ const Level2 = () => {
 
   // 3. Game Screen
   const currentQ = questions[currentQIndex];
-  if (!currentQ) return <div className="text-center p-10">Loading secrets...</div>;
+  if (!currentQ) return <div className="text-center p-10">載入秘密中...</div>;
 
   const isWinner = status === 'truth_revealed' && myVote === currentQ.ownerId && user.id !== currentQ.ownerId;
 
@@ -231,7 +231,7 @@ const Level2 = () => {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none"
         >
           <div className="text-6xl font-bold text-yellow-400 drop-shadow-lg flex items-center gap-2 filter drop-shadow-md">
-            <span>+{POINTS_PER_WIN}</span><span className="text-4xl">pts!</span>
+            <span>+{POINTS_PER_WIN}</span><span className="text-4xl">分!</span>
           </div>
         </motion.div>
       )}
@@ -240,9 +240,9 @@ const Level2 = () => {
       <div className="text-center">
         <h2 className="text-christmas-accent font-serif text-xl">Level 2: Who Knows Me?</h2>
         <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-widest text-christmas-text/60 mt-1">
-          <span>Secret {currentQIndex + 1} / {questions.length}</span>
+          <span>秘密 {currentQIndex + 1} / {questions.length}</span>
           <span className="w-1 h-1 rounded-full bg-christmas-text/30" />
-          <span className="text-christmas-accent font-bold">Win: +{POINTS_PER_WIN} pts</span>
+          <span className="text-christmas-accent font-bold">勝: +{POINTS_PER_WIN} 分</span>
         </div>
       </div>
 
@@ -266,7 +266,7 @@ const Level2 = () => {
             animate={{ opacity: 1, y: 0 }}
             className="absolute inset-0 bg-christmas-accent/90 backdrop-blur-sm flex flex-col items-center justify-center text-white z-20"
           >
-            <p className="text-sm uppercase tracking-widest mb-2 opacity-80">The secret belongs to</p>
+            <p className="text-sm uppercase tracking-widest mb-2 opacity-80">這個秘密屬於</p>
             <h2 className="text-4xl font-serif font-bold">{currentQ.ownerName}</h2>
           </motion.div>
         )}
@@ -324,24 +324,37 @@ const Level2 = () => {
       {isAdmin && (
         <div className="pt-8 border-t border-christmas-text/10 flex flex-col items-center gap-2">
           <p className="text-xs font-serif text-christmas-text/60">
-            Votes: {Object.keys(votes).length} / {Object.keys(players).length}
+            已投票: {Object.keys(votes).length} / {Object.keys(players).length}
           </p>
           
           {status === 'voting' && (
-            <button onClick={handleShowVotes} className="w-full bg-christmas-text text-white font-serif py-3 rounded-xl shadow-lg hover:bg-christmas-text/90">
-              Show Guesses
+            <button 
+              onClick={handleShowVotes} 
+              className="w-full bg-christmas-text text-white font-serif py-3 rounded-xl shadow-lg hover:bg-christmas-text/90"
+            >
+              結束投票 (顯示猜測)
             </button>
           )}
           
           {status === 'votes_revealed' && (
-            <button onClick={handleRevealTruth} className="w-full bg-christmas-accent text-white font-serif py-3 rounded-xl shadow-lg hover:bg-christmas-accent/90">
-              Reveal Truth
-            </button>
+            <div className="flex flex-col gap-2 w-full">
+              {Object.keys(votes).length === 0 && (
+                <button 
+                  onClick={() => set(ref(db, 'level2/status'), 'voting')}
+                  className="w-full bg-gray-500 text-white font-serif py-3 rounded-xl shadow-lg hover:bg-gray-600"
+                >
+                  重新開放投票
+                </button>
+              )}
+              <button onClick={handleRevealTruth} className="w-full bg-christmas-accent text-white font-serif py-3 rounded-xl shadow-lg hover:bg-christmas-accent/90">
+                公佈真相
+              </button>
+            </div>
           )}
 
           {status === 'truth_revealed' && (
             <button onClick={handleNextQuestion} className="w-full bg-christmas-text text-white font-serif py-3 rounded-xl shadow-lg hover:bg-christmas-text/90">
-              {currentQIndex < questions.length - 1 ? 'Next Secret →' : 'Finish Level 2 →'}
+              {currentQIndex < questions.length - 1 ? '下一個秘密 →' : '結束 Level 2 →'}
             </button>
           )}
         </div>
@@ -349,7 +362,7 @@ const Level2 = () => {
 
       {/* Waiting Indicator */}
       {status === 'voting' && myVote !== null && (
-        <p className="text-center text-christmas-text/50 text-sm animate-pulse">Waiting for others...</p>
+        <p className="text-center text-christmas-text/50 text-sm animate-pulse">等待其他人...</p>
       )}
     </div>
   );

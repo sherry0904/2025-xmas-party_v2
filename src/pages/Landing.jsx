@@ -26,7 +26,7 @@ const Landing = ({ onEnter }) => {
         </h1>
         
         <p className="text-christmas-text/60 font-sans tracking-widest text-sm uppercase mt-4">
-          2025 Exclusive Event
+          2025 仙女一年一度交換禮物
         </p>
       </motion.div>
 
@@ -39,7 +39,7 @@ const Landing = ({ onEnter }) => {
         onClick={onEnter}
         className="glass-button text-lg font-serif tracking-wide px-12 py-4 group relative overflow-hidden"
       >
-        <span className="relative z-10">Enter Lobby</span>
+        <span className="relative z-10">進入大廳</span>
         <div className="absolute inset-0 bg-christmas-accent/10 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
       </motion.button>
     </div>

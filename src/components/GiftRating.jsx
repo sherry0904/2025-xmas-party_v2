@@ -52,9 +52,9 @@ const GiftRating = () => {
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-10 h-10 text-green-600" />
           </div>
-          <h2 className="text-2xl font-serif text-christmas-text mb-2">All Set!</h2>
+          <h2 className="text-2xl font-serif text-christmas-text mb-2">完成！</h2>
           <p className="text-christmas-text/60 mb-8">
-            Waiting for others to finish rating...
+            等待其他人完成評分...
           </p>
 
           <div className="flex flex-wrap justify-center gap-2 mb-8">
@@ -81,7 +81,7 @@ const GiftRating = () => {
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'}
               `}
             >
-              {allFinished ? 'Start Level 1 →' : 'Waiting for everyone...'}
+              {allFinished ? 'Start Level 1 →' : '等待大家完成...'}
             </button>
           )}
         </div>
@@ -97,8 +97,8 @@ const GiftRating = () => {
         </div>
         <h2 className="text-2xl font-serif text-christmas-text">Gift Suitability</h2>
         <p className="text-sm text-christmas-text/60 px-4 mt-2">
-          Rate how suitable <b>YOUR GIFT</b> is for each person. <br/>
-          (5 = Perfect Match, 1 = Nightmare)
+          評估一下 <b>你的禮物</b> 適合在場的每一位嗎？ <br/>
+          (5 = 絕配, 1 = 惡夢)
         </p>
       </div>
 
@@ -149,7 +149,7 @@ const GiftRating = () => {
               : 'bg-christmas-accent text-white hover:bg-christmas-accent/90 hover:scale-[1.02]'}
           `}
         >
-          Submit Ratings
+          送出評分
         </button>
       </div>
     </div>

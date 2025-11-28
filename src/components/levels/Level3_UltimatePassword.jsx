@@ -157,17 +157,23 @@ const Level3 = () => {
             <Bomb className="w-10 h-10 text-red-500" />
           </div>
           <div>
-            <h2 className="text-3xl font-serif text-christmas-accent mb-2">Round {currentRound + 1}</h2>
-            <div className="text-sm font-bold text-christmas-text/60 uppercase tracking-widest mb-4">
-              Range: 1 ~ {config.range}
-            </div>
-            <div className="flex justify-center gap-4 text-sm">
-              <span className="text-red-600 bg-red-100 px-3 py-1 rounded-full border border-red-200">
-                Boom: {config.penalty} pts
-              </span>
-              <span className="text-green-600 bg-green-100 px-3 py-1 rounded-full border border-green-200">
-                Survive: +{config.reward} pts
-              </span>
+            <h2 className="text-3xl font-serif text-christmas-accent mb-2">{TITLE}</h2>
+            <div className="w-12 h-1 bg-christmas-accent/20 mx-auto mb-4" />
+            <p className="text-christmas-text/80 leading-relaxed font-serif mb-6">{RULES}</p>
+
+            <div className="bg-white/40 p-4 rounded-xl border border-white/50">
+              <h3 className="text-xl font-serif text-christmas-text font-bold mb-1">Round {currentRound + 1}</h3>
+              <div className="text-sm font-bold text-christmas-text/60 uppercase tracking-widest mb-3">
+                範圍: 1 ~ {config.range}
+              </div>
+              <div className="flex justify-center gap-4 text-sm">
+                <span className="text-red-600 bg-red-100 px-3 py-1 rounded-full border border-red-200">
+                  爆炸: {config.penalty} 分
+                </span>
+                <span className="text-green-600 bg-green-100 px-3 py-1 rounded-full border border-green-200">
+                  倖存: +{config.reward} 分
+                </span>
+              </div>
             </div>
           </div>
 
@@ -176,10 +182,10 @@ const Level3 = () => {
               onClick={handleStartRound}
               className="mt-4 px-8 py-3 bg-christmas-accent text-white font-serif rounded-full shadow-lg hover:bg-christmas-accent/90"
             >
-              Start Round {currentRound + 1}
+              開始 Round {currentRound + 1}
             </button>
           ) : (
-            <p className="text-sm text-christmas-text/40 animate-pulse mt-4">Waiting for host...</p>
+            <p className="text-sm text-christmas-text/40 animate-pulse mt-4">等待主持人...</p>
           )}
         </div>
       </div>
@@ -201,17 +207,17 @@ const Level3 = () => {
           
           <h2 className="text-4xl font-serif text-red-600 mb-2">BOOM!</h2>
           <p className="text-xl text-christmas-text mb-6">
-            <span className="font-bold">{boomPlayer?.name}</span> hit the number <span className="font-bold text-red-600">{targetNumber}</span>!
+            <span className="font-bold">{boomPlayer?.name}</span> 踩到了地雷 <span className="font-bold text-red-600">{targetNumber}</span>!
           </p>
 
           <div className="grid grid-cols-2 gap-4 mb-8">
              <div className="bg-red-100 p-4 rounded-xl border border-red-200">
-               <div className="text-xs uppercase text-red-500 font-bold">Loser</div>
-               <div className="text-2xl font-bold text-red-700">{config.penalty} pts</div>
+               <div className="text-xs uppercase text-red-500 font-bold">爆炸者</div>
+               <div className="text-2xl font-bold text-red-700">{config.penalty} 分</div>
              </div>
              <div className="bg-green-100 p-4 rounded-xl border border-green-200">
-               <div className="text-xs uppercase text-green-500 font-bold">Survivors</div>
-               <div className="text-2xl font-bold text-green-700">+{config.reward} pts</div>
+               <div className="text-xs uppercase text-green-500 font-bold">倖存者</div>
+               <div className="text-2xl font-bold text-green-700">+{config.reward} 分</div>
              </div>
           </div>
 
@@ -220,7 +226,7 @@ const Level3 = () => {
               onClick={handleNextRound}
               className="w-full bg-christmas-accent text-white font-serif py-3 rounded-xl shadow-lg hover:bg-christmas-accent/90"
             >
-              {currentRound < ROUNDS.length - 1 ? 'Next Round →' : 'Finish Game →'}
+              {currentRound < ROUNDS.length - 1 ? '下一回合 →' : '結束遊戲 →'}
             </button>
           )}
         </div>
@@ -233,13 +239,13 @@ const Level3 = () => {
      return (
        <div className="w-full max-w-md mx-auto text-center">
          <div className="glass-card p-10">
-           <h2 className="text-3xl font-serif text-christmas-accent mb-6">All Rounds Complete!</h2>
+           <h2 className="text-3xl font-serif text-christmas-accent mb-6">所有回合結束！</h2>
            {isAdmin && (
              <button 
                onClick={handleFinishGame}
                className="w-full bg-christmas-accent text-white font-serif py-3 rounded-xl shadow-lg hover:bg-christmas-accent/90"
              >
-               See Final Results 🏆
+               查看最終結果 🏆
              </button>
            )}
          </div>
@@ -257,8 +263,8 @@ const Level3 = () => {
       <div className="text-center space-y-1">
         <h2 className="text-christmas-accent font-serif text-xl">Round {currentRound + 1} / 3</h2>
         <div className="flex justify-center gap-4 text-xs font-bold text-christmas-text/50 uppercase tracking-widest">
-           <span>Range: 1 ~ {config.range}</span>
-           <span>Target: ???</span>
+           <span>範圍: 1 ~ {config.range}</span>
+           <span>目標: ???</span>
         </div>
       </div>
 
@@ -267,7 +273,7 @@ const Level3 = () => {
         <div className="text-6xl font-serif text-christmas-text font-bold tracking-tighter mb-2">
           {range.min} ~ {range.max}
         </div>
-        <p className="text-sm text-christmas-text/40 uppercase tracking-widest">Current Range</p>
+        <p className="text-sm text-christmas-text/40 uppercase tracking-widest">目前範圍</p>
         
         {/* Turn Indicator */}
         <div className="mt-8 flex flex-col items-center gap-3">
@@ -278,9 +284,9 @@ const Level3 = () => {
           </div>
           <div className="text-center">
             {isMyTurn ? (
-              <span className="text-christmas-accent font-bold animate-pulse">It's your turn!</span>
+              <span className="text-christmas-accent font-bold animate-pulse">輪到你了！</span>
             ) : (
-              <span className="text-christmas-text/60">Waiting for {turnPlayer?.name}...</span>
+              <span className="text-christmas-text/60">等待 {turnPlayer?.name}...</span>
             )}
           </div>
         </div>

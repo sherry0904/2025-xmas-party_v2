@@ -127,7 +127,7 @@ const Level1 = () => {
               {RULES}
             </p>
             <div className="inline-block bg-christmas-accent/10 px-4 py-1 rounded-full text-christmas-accent text-sm font-bold mt-2">
-              Reward: +{POINTS_PER_WIN} pts / win
+              獎勵: +{POINTS_PER_WIN} 分 / 勝
             </div>
           </div>
 
@@ -138,11 +138,11 @@ const Level1 = () => {
               onClick={handleStartLevel}
               className="mt-4 px-8 py-3 bg-christmas-accent text-white font-serif rounded-full shadow-lg hover:bg-christmas-accent/90"
             >
-              Start Level 1
+              開始 Level 1
             </motion.button>
           ) : (
             <p className="text-sm text-christmas-text/40 animate-pulse mt-4">
-              Waiting for host to start...
+              等待主持人開始...
             </p>
           )}
         </div>
@@ -157,10 +157,10 @@ const Level1 = () => {
     return (
       <div className="w-full max-w-md mx-auto space-y-8 text-center animate-fade-in">
         <div className="glass-card p-8">
-          <h2 className="text-2xl font-serif text-christmas-accent mb-6">Level 1 Complete!</h2>
+          <h2 className="text-2xl font-serif text-christmas-accent mb-6">Level 1 完成！</h2>
           
           <div className="space-y-3 mb-8">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-christmas-text/50">Current Standings</h3>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-christmas-text/50">目前排名</h3>
             {sortedPlayers.slice(0, 3).map((p, idx) => (
               <div key={p.id} className="flex items-center justify-between p-3 bg-white/40 rounded-xl border border-white/50">
                 <div className="flex items-center gap-3">
@@ -174,7 +174,7 @@ const Level1 = () => {
                   </span>
                   <span className="font-serif">{p.name}</span>
                 </div>
-                <span className="font-bold text-christmas-accent">{p.score} pts</span>
+                <span className="font-bold text-christmas-accent">{p.score} 分</span>
               </div>
             ))}
           </div>
@@ -184,11 +184,11 @@ const Level1 = () => {
               onClick={handleStartLevel2}
               className="w-full bg-christmas-accent text-white font-serif py-3 rounded-xl shadow-lg hover:bg-christmas-accent/90"
             >
-              Go to Level 2 →
+              前往 Level 2 →
             </button>
           ) : (
             <p className="text-sm text-christmas-text/40 animate-pulse">
-              Waiting for next level...
+              等待下一關...
             </p>
           )}
         </div>
@@ -217,7 +217,7 @@ const Level1 = () => {
         >
           <div className="text-6xl font-bold text-yellow-400 drop-shadow-lg flex items-center gap-2 filter drop-shadow-md">
             <span>+{POINTS_PER_WIN}</span>
-            <span className="text-4xl">pts!</span>
+            <span className="text-4xl">分!</span>
           </div>
         </motion.div>
       )}
@@ -226,9 +226,9 @@ const Level1 = () => {
       <div className="text-center">
         <h2 className="text-christmas-accent font-serif text-xl">Level 1: Majority Rules</h2>
         <div className="flex items-center justify-center gap-3 text-xs uppercase tracking-widest text-christmas-text/60 mt-1">
-          <span>Question {currentQIndex + 1} / {QUESTIONS.length}</span>
+          <span>問題 {currentQIndex + 1} / {QUESTIONS.length}</span>
           <span className="w-1 h-1 rounded-full bg-christmas-text/30" />
-          <span className="text-christmas-accent font-bold">Win: +{POINTS_PER_WIN} pts</span>
+          <span className="text-christmas-accent font-bold">勝: +{POINTS_PER_WIN} 分</span>
         </div>
       </div>
 
@@ -277,7 +277,7 @@ const Level1 = () => {
               <div className="relative flex justify-between items-center w-full px-2">
                 <span>{opt}</span>
                 {status === 'revealed' && (
-                  <span className="font-bold text-sm">{count} votes</span>
+                  <span className="font-bold text-sm">{count} 票</span>
                 )}
               </div>
             </motion.button>
@@ -289,7 +289,7 @@ const Level1 = () => {
       {isAdmin && (
         <div className="pt-8 border-t border-christmas-text/10 flex flex-col items-center gap-2">
           <p className="text-xs font-serif text-christmas-text/60">
-            Votes: {Object.keys(votes).length} / {Object.keys(players).length}
+            已投票: {Object.keys(votes).length} / {Object.keys(players).length}
           </p>
           
           {status === 'voting' ? (
@@ -297,14 +297,14 @@ const Level1 = () => {
               onClick={handleReveal}
               className="w-full bg-christmas-text text-white font-serif py-3 rounded-xl shadow-lg hover:bg-christmas-text/90"
             >
-              Reveal Results
+              公佈結果
             </button>
           ) : (
             <button 
               onClick={handleNextQuestion}
               className="w-full bg-christmas-accent text-white font-serif py-3 rounded-xl shadow-lg hover:bg-christmas-accent/90"
             >
-              {currentQIndex < QUESTIONS.length - 1 ? 'Next Question →' : 'Finish Level 1 →'}
+              {currentQIndex < QUESTIONS.length - 1 ? '下一題 →' : '結束 Level 1 →'}
             </button>
           )}
         </div>
@@ -313,7 +313,7 @@ const Level1 = () => {
       {/* Waiting Indicator */}
       {status === 'voting' && myVote !== null && (
         <p className="text-center text-christmas-text/50 text-sm animate-pulse">
-          Waiting for others...
+          等待其他人...
         </p>
       )}
     </div>
