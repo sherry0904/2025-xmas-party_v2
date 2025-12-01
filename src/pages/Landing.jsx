@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
+import { useGame } from '../store/gameStore';
 
 const Landing = ({ onEnter }) => {
+  const { resetAllGame } = useGame();
+  const [secretClicks, setSecretClicks] = useState(0);
+
+  const handleSecretClick = () => {
+    const newCount = secretClicks + 1;
+    setSecretClicks(newCount);
+
+    if (newCount >= 5) {
+      const pwd = prompt("Enter Admin Password to Force Reset:");
+      if (pwd === "admin") {
+        resetAllGame();
+        setSecretClicks(0);
+      } else if (pwd !== null) {
+        alert("Wrong password");
+        setSecretClicks(0);
+      }
+    }
+  };
+
   return (
     <div className="text-center space-y-12">
       <motion.div
@@ -20,7 +40,10 @@ const Landing = ({ onEnter }) => {
           </motion.div>
         </div>
         
-        <h1 className="text-5xl md:text-6xl font-serif text-christmas-text tracking-tight">
+        <h1 
+          onClick={handleSecretClick}
+          className="text-5xl md:text-6xl font-serif text-christmas-text tracking-tight cursor-default select-none active:scale-95 transition-transform"
+        >
           Christmas<br />
           <span className="text-christmas-accent italic">Party</span>
         </h1>
