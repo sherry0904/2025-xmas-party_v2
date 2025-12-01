@@ -46,6 +46,14 @@ const Level1 = () => {
     };
   }, []);
 
+  // Auto-scroll to top when question changes or status changes
+  useEffect(() => {
+    const mainContainer = document.getElementById('main-scroll-container');
+    if (mainContainer) {
+      mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [currentQIndex, status]);
+
   const handleStartLevel = async () => {
     await set(ref(db, 'level1/status'), 'voting');
   };
