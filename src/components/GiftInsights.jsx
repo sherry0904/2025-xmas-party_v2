@@ -43,7 +43,7 @@ const GiftInsights = ({ players, onClose }) => {
       <motion.div 
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
-        className="bg-white/90 backdrop-blur-md w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl border border-white/50 flex flex-col"
+        className="bg-white/90 backdrop-blur-md w-full max-w-2xl max-h-[85dvh] overflow-y-auto rounded-3xl shadow-2xl border border-white/50 flex flex-col"
       >
         {/* Header */}
         <div className="p-6 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-white/80 backdrop-blur z-10">
@@ -142,6 +142,16 @@ const GiftInsights = ({ players, onClose }) => {
                 </tbody>
               </table>
             </div>
+          </div>
+
+          {/* Bottom Close Button (Mobile Friendly) */}
+          <div className="pt-4 md:hidden">
+            <button 
+              onClick={onClose}
+              className="w-full py-3 bg-gray-100 text-gray-600 rounded-xl font-bold active:bg-gray-200 transition-colors"
+            >
+              關閉
+            </button>
           </div>
 
         </div>
