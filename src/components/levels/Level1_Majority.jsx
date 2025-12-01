@@ -48,6 +48,9 @@ const Level1 = () => {
 
   // Auto-scroll to top when question changes or status changes
   useEffect(() => {
+    // Don't scroll when revealing answers (so Admin can click Next)
+    if (status === 'revealed') return;
+
     const mainContainer = document.getElementById('main-scroll-container');
     if (mainContainer) {
       mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
