@@ -15,9 +15,9 @@ const Layout = ({ children }) => {
     : [];
 
   return (
-    <div className="min-h-screen bg-christmas-background text-christmas-text font-sans overflow-hidden relative flex flex-col">
+    <div className="h-[100dvh] bg-christmas-background text-christmas-text font-sans overflow-hidden relative flex flex-col">
       {/* Animated Background Particles */}
-      <div className="fixed inset-0 pointer-events-none z-0">
+      <div className="absolute inset-0 pointer-events-none z-0">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
@@ -46,7 +46,7 @@ const Layout = ({ children }) => {
 
       {/* Persistent Header (Score) */}
       {user && (
-        <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center bg-gradient-to-b from-christmas-background to-transparent">
+        <header className="flex-none z-50 px-6 py-4 flex justify-between items-center bg-gradient-to-b from-christmas-background to-transparent">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-christmas-accent/20 rounded-full flex items-center justify-center border border-christmas-accent/50">
               <span className="font-serif text-christmas-accent font-bold">
@@ -75,8 +75,8 @@ const Layout = ({ children }) => {
         </header>
       )}
 
-      {/* Main Content */}
-      <main className="relative z-10 flex-1 flex flex-col justify-center p-6 pt-20 pb-24">
+      {/* Main Content - Scrollable Area */}
+      <main className="flex-1 overflow-y-auto overflow-x-hidden relative z-10 p-6 pb-24">
         {children}
       </main>
 
